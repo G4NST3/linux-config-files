@@ -4,3 +4,5 @@ Copy/install bspwmrc from there into ~/.config/bspwm/ or run the command:
 install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
 
 The file bspwmrc needs to be executable since the default example is simply a shell script that in turn configures bspwm via the bspc command.
+
+SOURCE: https://wiki.archlinux.org/title/bspwm
