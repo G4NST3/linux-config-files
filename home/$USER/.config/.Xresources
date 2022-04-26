@@ -1,0 +1,8 @@
+XTerm.vt100.locale: false
+XTerm.vt100.utf8: true
+
+XTerm.vt100.saveLines: 4096
+
+XTerm.vt100.selectToClipboard 
+
+XTerm.vt100.reverseVideo: true
