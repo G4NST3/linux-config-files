@@ -1,1 +1,1 @@
-
+`gzip -d dunstrc.gz`
