@@ -1,4 +1,4 @@
-# PICOM 
+# Picom
 
 The default configuration file is available in `/usr/share/doc/picom/examples/picom.sample.conf`<br/>
 For modifications, it must be copied to `~/.config/picom/picom.conf`
