@@ -1,172 +1,70 @@
-" Vim
-" An example for a vimrc file.
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"             for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
+" All system-wide defaults are set in $VIMRUNTIME/debian.vim and sourced by
+" the call to :runtime you can find below.  If you wish to change any of those
+" settings, you should do it in this file (/etc/vim/vimrc), since debian.vim
+" will be overwritten everytime an upgrade of the vim packages is performed.
+" It is recommended to make changes after sourcing debian.vim since it alters
+" the value of the 'compatible' option.
 
-set nocompatible	" Use Vim defaults (much better!)
-set bs=2		" allow backspacing over everything in insert mode
-set ai			" always set autoindenting on
-set backup		" keep a backup file
-set viminfo='20,\"50	" read/write a .viminfo file, don't store more
-			" than 50 lines of registers
+runtime! debian.vim
 
+" Vim will load $VIMRUNTIME/defaults.vim if the user does not have a vimrc.
+" This happens after /etc/vim/vimrc(.local) are loaded, so it will override
+" any settings in these files.
+" If you don't want that to happen, uncomment the below line to prevent
+" defaults.vim from being loaded.
+" let g:skip_defaults_vim = 1
 
-:set showmatch		" jump emacs style to matching bracket
+" Uncomment the next line to make Vim more Vi-compatible
+" NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
+" options, so any other options should be set AFTER setting 'compatible'.
+"set compatible
 
-"these characters can move past end of line
-:set whichwrap=b,s,h,l
+" Vim5 and later versions support syntax highlighting. Uncommenting the next
+" line enables syntax highlighting by default.
+syntax on
 
-"default tabs are too wide IMO. uncomment to change them
-" :set tabstop=6 
+" If using a dark background within the editing area and syntax highlighting
+" turn on this option as well
+set background=dark
 
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+"au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-" In text files, always limit the width of text to 78 characters
-autocmd BufRead *.txt set tw=78	
+" Uncomment the following to have Vim load indentation rules and plugins
+" according to the detected filetype.
+"filetype plugin indent on
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
+" The following are commented out as they cause vim to behave a lot
+" differently from regular Vi. They are highly recommended though.
+set showcmd		" Show (partial) command in status line.
+"set showmatch		" Show matching brackets.
+"set ignorecase		" Do case insensitive matching
+"set smartcase		" Do smart case matching
+set incsearch		" Incremental search
+"set autowrite		" Automatically save before commands like :next and :make
+"set hidden		" Hide buffers when they are abandoned
+set mouse=a		" Enable mouse usage (all modes)
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
+" Source a global configuration file if available
+if filereadable("/etc/vim/vimrc.local")
+  source /etc/vim/vimrc.local
 endif
 
-augroup cprog
-  " Remove all cprog autocommands
-  au!
-
-  " When starting to edit a file:
-  "   For *.c and *.h files set formatting of comments and set C-indenting on.
-  "   For other files switch it off.
-  "   Don't change the order, it's important that the line with * comes first.
-  autocmd BufRead *       set formatoptions=tcql nocindent comments&
-  autocmd BufRead *.c,*.h set formatoptions=croql cindent comments=sr:/*,mb:*,el:*/,://
-augroup END
-
-augroup gzip
-  " Remove all gzip autocommands
-  au!
-
-  " Enable editing of gzipped files
-  "	  read:	set binary mode before reading the file
-  "		uncompress text in buffer after reading
-  "	 write:	compress file after writing
-  "	append:	uncompress file, append, compress file
-  autocmd BufReadPre,FileReadPre	*.gz set bin
-  autocmd BufReadPost,FileReadPost	*.gz let ch_save = &ch|set ch=2
-  autocmd BufReadPost,FileReadPost	*.gz '[,']!gunzip
-  autocmd BufReadPost,FileReadPost	*.gz set nobin
-  autocmd BufReadPost,FileReadPost	*.gz let &ch = ch_save|unlet ch_save
-  autocmd BufReadPost,FileReadPost	*.gz execute ":doautocmd BufReadPost " . expand("%:r")
-
-  autocmd BufWritePost,FileWritePost	*.gz !mv <afile> <afile>:r
-  autocmd BufWritePost,FileWritePost	*.gz !gzip <afile>:r
-
-  autocmd FileAppendPre			*.gz !gunzip <afile>
-  autocmd FileAppendPre			*.gz !mv <afile>:r <afile>
-  autocmd FileAppendPost		*.gz !mv <afile> <afile>:r
-  autocmd FileAppendPost		*.gz !gzip <afile>:r
-augroup END
 
 
-"let bash_is_sh = 1
-"let is_bash = 1
-
-" Uncomment to turn off arrow keys. Using arrow keys is a good habit to 
-" get out of ... 
-
-":map <left> <Nop>
-":map <right> <Nop>
-":map <up> <Nop>
-":map <down> <Nop>
-
-":imap <left> <Nop>
-":imap <right> <Nop>
-":imap <up> <Nop>
-":imap <down> <Nop>
-
-" Some emacs/pico like keybindings for insert mode
-
-":imap <C-A> <ESC>0i
-":imap <C-E> <ESC>$a
-":imap <C-P> <ESC>ki
-":imap <C-N> <ESC>ji
-":imap <C-B> <ESC>la
-":imap <C-F> <ESC>ha
-
-" Some highlighting definitions
-
-" THis is the default. 
-" Doesn't use colours wisely IMO. Consider changing Repeat and Conditional
-" to make them stand out a little better.
-
-" There are two sets of defaults: for a dark and a light background.
-  if &background == "dark"
-    hi Comment	term=bold ctermfg=Cyan guifg=#80a0ff
-    hi Constant	term=underline ctermfg=Magenta guifg=#ffa0a0
-    hi Special	term=bold ctermfg=LightRed guifg=Orange
-    hi Identifier term=underline cterm=bold ctermfg=Cyan guifg=#40ffff
-    hi Statement term=bold ctermfg=Yellow guifg=#ffff60 gui=bold
-    hi PreProc	term=underline ctermfg=LightBlue guifg=#ff80ff
-    hi Type	term=underline ctermfg=LightGreen guifg=#60ff60 gui=bold
-    hi Ignore	ctermfg=black guifg=bg
-  else
-    hi Comment	term=bold ctermfg=DarkBlue guifg=Blue
-    hi Constant	term=underline ctermfg=DarkRed guifg=Magenta
-    hi Special	term=bold ctermfg=DarkMagenta guifg=SlateBlue
-    hi Identifier term=underline ctermfg=DarkCyan guifg=DarkCyan
-    hi Statement term=bold ctermfg=Brown gui=bold guifg=Brown
-    hi PreProc	term=underline ctermfg=DarkMagenta guifg=Purple
-    hi Type	term=underline ctermfg=DarkGreen guifg=SeaGreen gui=bold
-    hi Ignore	ctermfg=white guifg=bg
-  endif
-  hi Error	term=reverse ctermbg=Red ctermfg=White guibg=Red guifg=White
-  hi Todo	term=standout ctermbg=Yellow ctermfg=Black guifg=Blue guibg=Yellow
-
-  " Common groups that link to default highlighting.
-  " You can specify other highlighting easily.
-  hi link String	Constant
-  hi link Character	Constant
-  hi link Number	Constant
-  hi link Boolean	Constant
-  hi link Float		Number
-  hi link Function	Identifier
-  hi link Conditional	Statement
-  hi link Repeat	Statement
-  hi link Label		Statement
-  hi link Operator	Statement
-  hi link Keyword	Statement
-  hi link Exception	Statement
-  hi link Include	PreProc
-  hi link Define	PreProc
-  hi link Macro		PreProc
-  hi link PreCondit	PreProc
-  hi link StorageClass	Type
-  hi link Structure	Type
-  hi link Typedef	Type
-  hi link Tag		Special
-  hi link SpecialChar	Special
-  hi link Delimiter	Special
-  hi link SpecialComment Special
-  hi link Debug		Special
+set clipboard=unnamedplus
+filetype plugin on
+set number
+set hlsearch
+colorscheme torte
+"let g:powerline_pycmd="py"
+set laststatus=2
 
 
-:set number
-:set mouse=a
-:set incsearch
-:set hlsearch
-:set clipboard=unnamedplus
-:colorscheme torte
-:let g:powerline_pycmd="py3"
-:set laststatus=2
-:set t_Co=256
-:set termguicolors
 
+"vim-airline-theme
+let g:airline_theme='powerlineish'
+
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
