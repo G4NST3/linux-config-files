@@ -1,3 +1,9 @@
+Xft.dpi: 144
+
+Xcursor.size: 36
+
+
+
 XTerm.vt100.locale: false
 XTerm.vt100.utf8: true
 
