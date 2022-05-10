@@ -1,4 +1,4 @@
-neofetch | lolcat -t -s
+#neofetch | lolcat -t -s
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -41,3 +41,5 @@ source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # powerline
 #powerline-daemon -q
 #. /usr/share/powerline/bindings/zsh/powerline.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
