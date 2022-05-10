@@ -1,4 +1,4 @@
-" All system-wide defaults are set in $VIMRUNTIME/debian.vim and sourced by
+"All system-wide defaults are set in $VIMRUNTIME/debian.vim and sourced by
 " the call to :runtime you can find below.  If you wish to change any of those
 " settings, you should do it in this file (/etc/vim/vimrc), since debian.vim
 " will be overwritten everytime an upgrade of the vim packages is performed.
@@ -27,7 +27,7 @@ syntax on
 " turn on this option as well
 set background=dark
 
-" Uncomment the following to have Vim jump to the last position when
+" Uncommient the following to have Vim jump to the last position when
 " reopening a file
 "au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -57,9 +57,22 @@ set clipboard=unnamedplus
 filetype plugin on
 set number
 set hlsearch
-colorscheme torte
+"colorscheme torte
+"highlight Normal guibg=NONE
+"hi Normal guibg=NONE ctermbg=NONE
 "let g:powerline_pycmd="py"
 set laststatus=2
+"set guicursor=
+
+set relativenumber
+set nu
+"set nohlsearch
+set hidden
+set nowrap
+set incsearch
+set signcolumn=yes
+set colorcolumn=80
+set scrolloff=10
 
 
 
@@ -68,3 +81,62 @@ let g:airline_theme='powerlineish'
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+
+
+
+
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
+
+" Make sure you use single quotes
+
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+
+" Any valid git URL is allowed
+Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+
+" Multiple Plug commands can be written in a single line using | separators
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+
+" Using a non-default branch
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+
+" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+Plug 'fatih/vim-go', { 'tag': '*' }
+
+" Plugin options
+Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+
+
+" My plugins
+Plug 'morhetz/gruvbox'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"Plug 'kyazdani42/nvim-web-devicons'
+"Plug 'romgrk/barbar.nvim'
+
+
+
+" Initialize plugin system
+call plug#end()
+
+
+
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
+let g:gruvbox_transparent_bg = '0'
