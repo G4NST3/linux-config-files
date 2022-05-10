@@ -2,6 +2,8 @@
 
 # [My Wiki](https://github.com/G4NST3/GNU-Linux/wiki)
 
+- [Ubuntu](https://github.com/G4NST3/GNU-Linux/wiki/Ubuntu)
+
 - [Debian (stable)](https://github.com/G4NST3/GNU-Linux/wiki/Debian-(stable))
 
 
