@@ -52,9 +52,9 @@ Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
  
 " MY PLUGINS ##################################################################
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-"Plug 'powerline/powerline-fonts'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'powerline/powerline-fonts'
 Plug 'morhetz/gruvbox-contrib'
 Plug 'morhetz/gruvbox'
 Plug 'NTBBloodbath/galaxyline.nvim'
@@ -66,12 +66,12 @@ call plug#end()
 
 " AIRLINE
 "set laststatus=2
-"let g:airline_theme='powerlineish'
-"let g:airline_powerline_fonts=1
-"let g:airline#extensions#tabline#enabled=1
+let g:airline_theme='powerlineish'
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1
 
 " GRUVBOX
 let g:gruvbox_termcolors = '256'
 let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
-highlight Normal guibg=NONE
+highlight Normal guibg=none
