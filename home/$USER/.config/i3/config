@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+#font pango:monospace 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -34,20 +34,45 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+
+
+
+exec_always --no-startup-id killall picom
+exec_always --no-startup-id killall volumeicon 
+
+#exec_always pulseeffects --gapplication-service
+exec_always --no-startup-id numlockx on
 exec_always --no-startup-id lxpolkit
-
 exec_always --no-startup-id nitrogen --restore
+#exec_always --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --scale 1.5x1.5
+#exec_always --no-startup-id redshift-gtk && redshift -x
+exec_always --no-startup-id volumeicon
+exec_always --no-startup-id nvidia-settings --load-config-only --assign="SyncToVBlank=0"
+#exec_always --no-startup-id nvidia-settings --load-config-only --assign="ShowGSYNCVisualIndicator=1"
+exec_always --no-startup-id setroot -cursor_name left_ptr
+exec_always --no-startup-id picom -b
 
-exec_always --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --scale 1.5x1.5
+#exec_always --no-startup-id i3-msg 'rename workspace 1 to "1:TMUX"'
+#exec_always --no-startup-id i3-msg 'rename workspace 6 to "6:TMUX"'
+
+#exec_always --no-startup-id terminator --command="tmux a"
+
+#exec_always --no-startup-id i3-msg 'workspace $ws1; exec google-chrome-stable'
+#exec_always --no-startup-id i3-msg 'workspace $ws6; exec terminator --command="tmux a"'
+#exec_always --no-startup-id i3-msg 'workspace $ws10; exec spotify'
 
 
-bindsym $mod+F12 exec rofi -modi drun -show drun -show-icons -dpi 144
+bindsym $mod+F9 exec terminator --command="tmux a"
+bindsym $mod+F10 exec spotify
+bindsym $mod+F11 exec google-chrome-stable
+bindsym $mod+F12 exec rofi -modi drun -show drun -show-icons -dpi 192
+
 
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -143,6 +168,10 @@ workspace 8 output HDMI-0
 workspace 9 output HDMI-0
 workspace 10 output HDMI-0
 
+# switch next/prev workspace
+bindsym $mod+ctrl+Right workspace next
+bindsym $mod+ctrl+Left workspace prev			
+
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -204,15 +233,60 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        #font pango:monospace 11
+	font pango:TerminessTTF NF medium 13
 	output DP-0
-        status_command i3status
+        status_command i3status --config ~/.config/i3status/config
 	tray_output DP-0
+	tray_padding 0 
         position top
+	#i3bar_command i3bar --transparency
+
+
+	colors {
+        	#background #00000090
+		background #000000
+        	statusline #ff0000
+        	separator #00ff00
+
+        	focused_workspace  #4c7899 #285577 #ffffff
+        	active_workspace   #333333 #5f676a #ffffff
+        	inactive_workspace #333333 #222222 #888888
+        	urgent_workspace   #2f343a #900000 #ffffff
+        	binding_mode       #2f343a #900000 #ffffff
+	}
 }
 
 bar {
+        font pango:TerminessTTF NF medium 10
 	output HDMI-0
 	status_command i3status --config ~/.config/i3status/config2
 	tray_output DP-0
 	position top
+	#i3bar_command i3bar --transparency
+
+  	colors {
+        	#background #00000090
+		background #000000
+        	statusline #ff0000
+        	separator #00ff00
+
+        	focused_workspace  #4c7899 #285577 #ffffff
+        	active_workspace   #333333 #5f676a #ffffff
+        	inactive_workspace #333333 #222222 #888888
+        	urgent_workspace   #2f343a #900000 #ffffff
+        	binding_mode       #2f343a #900000 #ffffff
+  	}
 }
+
+for_window [class="^.*"] border pixel 1
+
+# COLORS
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #ff0000   #ff0000
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
