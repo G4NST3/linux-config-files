@@ -8,7 +8,7 @@ set mouse=a                 " enable mouse usage (all modes)
 "?filetype plugin on        " enable syntax highlighting for many program
 set nowrap                  " no wraping text allowed 
 set scrolloff=10	    " cursor stay away when scrolling
-set termguicolors           " set true color
+"set termguicolors           " set true color
 set colorcolumn=80          " add warning line at x
 set signcolumn=yes          " 
 
@@ -64,7 +64,7 @@ call plug#end()
 " #############################################################################
 " #############################################################################
 
-" AIRLINE
+" AIRLINE Customize the status line
 "set laststatus=2
 let g:airline_theme='powerlineish'
 let g:airline_powerline_fonts=1
