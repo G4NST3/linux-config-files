@@ -55,7 +55,6 @@ endif
 "
 " MY SETTINGS #################################################################
 set clipboard=unnamedplus   "enable clipboard
-"set guicursor=             "the cursor always remain a block
 filetype plugin on          "enable syntax highlighting for many programming languages
 "set number                 "column number
 set relativenumber          "column relative numbers
