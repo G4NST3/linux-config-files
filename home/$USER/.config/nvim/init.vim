@@ -1,16 +1,47 @@
 set mouse=a                 " enable mouse usage (all modes)
-set clipboard=unnamedplus   " enable clipboard
-"set number                 " column number
-set relativenumber          " column relative numbers
+set clipboard+=unnamedplus   " enable clipboard
+
+"let mapleader = " "
+
+set number                 " column number
+set relativenumber          " column relative numbers (num + j/k)
 set nu                      " show line number when relativenumber 
+
 set hidden                  " hide buffers when they are abandoned
-set mouse=a                 " enable mouse usage (all modes)
-"?filetype plugin on        " enable syntax highlighting for many program
+
+syntax on
+filetype plugin on        " enable syntax highlighting for many program
+
 set nowrap                  " no wraping text allowed 
-set scrolloff=10	    " cursor stay away when scrolling
+
 set termguicolors           " set true color
+
+set scrolloff=10	    " cursor stay away when scrolling
 set colorcolumn=80          " add warning line at x
-set signcolumn=yes          " et clipboard=unnamedplus
+set signcolumn=yes          " set clipboard=unnamedplus
+
+set title
+set path+=**
+
+set nocompatible
+
+" set expandtab
+set smartindent
+
+set showcmd
+set showmode
+
+set incsearch
+set smartcase
+set ignorecase
+
+set encoding=utf-8
+
+set dictionary=en
+set complete+=kspell "????????????
+set completeopt=menuone,longest "???????????
+
+
 
 " #############################################################################
 " PLUGINS #####################################################################
@@ -54,10 +85,18 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " MY PLUGINS ##################################################################
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'powerline/powerline-fonts'
+" Plug 'powerline/powerline-fonts'
 Plug 'morhetz/gruvbox-contrib'
 Plug 'morhetz/gruvbox'
 "Plug 'NTBBloodbath/galaxyline.nvim'
+"
+"Plug 'Xuyuanp/scrollbar.nvim'
+"
+Plug 'ap/vim-css-color'
+
+Plug 'vifm/vifm.vim'
+
+Plug 'vim-scripts/AutoComplPop'
 
 " Initialize plugin system
 call plug#end()
@@ -65,7 +104,7 @@ call plug#end()
 " #############################################################################
 
 " AIRLINE Customize the status line
-set laststatus=2
+set laststatus=2 "Always display the status bar
 let g:airline_theme='powerlineish'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1

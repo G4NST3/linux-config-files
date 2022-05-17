@@ -2,10 +2,11 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor DP-0 -d 1 2 3 4 5
+bspc monitor HDMI-0 -d 6 7 8 9 10
 
-bspc config border_width         2
-bspc config window_gap           8
+bspc config border_width         3
+bspc config window_gap          12
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
@@ -17,14 +18,12 @@ bspc config gapless_monocle      true
 #bspc rule -a Kupfer.py focus=on
 #bspc rule -a Screenkey manage=off
 
-bspc config focus_follows_pointer true
+# MY SETTINGS #################################################################
 
-bspc config pointer_modifier mod4
-bspc config pointer_action1 move
-bspc config pointer_action2 resize_side
-bspc config pointer_action3 resize_corner
-bspc config remove_disabled_monitors true
-bspc config merge_overlapping_monitors true
+#bspc config pointer_motion_interval 0
+
+killall polybar
+$HOME/.config/polybar/launch.sh
 
 #BSPWM coloring
 bspc config normal_border_color		"#000000"
@@ -33,20 +32,25 @@ bspc config focused_border_color	"#ff0000"
 #bspc config presel_feedback_color	"#5e81ac"
 #bspc config urgent_border_color 	"#dd2727"
 
-$HOME/.config/polybar/launch.sh
+bspc config focus_follows_pointer true
 
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+flatpak run com.github.wwmm.pulseeffects --gapplication-service &
 
-vmware-user-suid-wrapper &
+nvidia-settings --load-config-only --assign="SyncToVBlank=0" &
+
+killall -q picom
+picom &
+
+killall -q volumeicon
+volumeicon &
 
 xsetroot -cursor_name left_ptr &
-numlockx on &
 nitrogen --restore &
-killall volumeicon
-volumeicon &
-killall picom
-picom &
-killall nm-applet
+numlockx on &
+lxpolkit &
+psensor &
 nm-applet &
-killall caprine
-caprine &
+polychromatic-tray-applet &
+
+
+

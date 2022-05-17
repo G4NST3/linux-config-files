@@ -4,13 +4,14 @@
 
 # terminal emulator
 super + Return
+#	urxvt
 	terminator
 
 # program launcher
 #super + @space
-super + space
-	rofi -show
-#rofi -modi drun -show drun	
+#	dmenu_run
+super + F12
+	rofi -modi drun -show drun -show-icons -dpi 192
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -19,19 +20,21 @@ super + Escape
 #
 # bspwm hotkeys
 #
+super + F9
+	pcmanfm
+
+super + F10
+	spotify
+
+super + F11
+	google-chrome-stable
 
 # quit/restart bspwm
-#super + alt + {q,r}
-#bspc {quit,wm -r}
-
-# quit/restart bspwm
-ctrl + alt + {q,r}
+super + alt + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
 #super + {_,shift + }w
-#	bspc node -{c,k}
-
 super + {q,w}
 	bspc node -{c,k}
 
