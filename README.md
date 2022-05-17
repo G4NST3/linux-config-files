@@ -2,6 +2,8 @@
 
 # [My Wiki](https://github.com/G4NST3/GNU-Linux/wiki)
 
+- [Pop!_OS](https://github.com/G4NST3/GNU-Linux/wiki/Pop!_OS)
+
 - [Fedora](https://github.com/G4NST3/GNU-Linux/wiki/Fedora)
 
 - [openSUSE Tumbleweed](https://github.com/G4NST3/GNU-Linux/wiki/openSUSE-Tumbleweed)
