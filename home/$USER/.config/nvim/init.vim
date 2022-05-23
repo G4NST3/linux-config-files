@@ -113,4 +113,4 @@ let g:airline#extensions#tabline#enabled=1
 let g:gruvbox_termcolors = '256'
 let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
-highlight Normal guibg=none
+highlight Normal guibg=NONE
