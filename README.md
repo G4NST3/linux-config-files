@@ -12,6 +12,6 @@
 
 - [Debian (stable)](https://github.com/G4NST3/GNU-Linux/wiki/Debian-(stable))
 
-- [Manjaro (https://github.com/G4NST3/GNU-Linux/wiki/Manjaro)
+- [Manjaro](https://github.com/G4NST3/GNU-Linux/wiki/Manjaro)
 
 
