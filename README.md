@@ -3,7 +3,7 @@
 # [My Wiki](https://github.com/G4NST3/GNU-Linux/wiki)
 
 <a href="https://github.com/G4NST3/GNU-Linux/wiki/Arch">
-  <img src="https://archlinux.org/static/logos/archlinux-logo-light-90dpi.d36c53534a2b.png" alt="Arch" height=100">
+  <img src="https://archlinux.org/static/logos/archlinux-logo-light-90dpi.d36c53534a2b.png" alt="Arch" height="100">
 </a>
 
 
