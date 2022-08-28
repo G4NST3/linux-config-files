@@ -2,6 +2,8 @@
 
 # [My Wiki](https://github.com/G4NST3/GNU-Linux/wiki)
 
+- [![Arch](https://archlinux.org/static/logos/archlinux-logo-light-90dpi.d36c53534a2b.png)](https://github.com/G4NST3/GNU-Linux/wiki/Arch)
+
 - [Pop!_OS](https://github.com/G4NST3/GNU-Linux/wiki/Pop!_OS)
 
 - [Fedora](https://github.com/G4NST3/GNU-Linux/wiki/Fedora)
