@@ -14,6 +14,6 @@
 
 - [Arch](https://github.com/G4NST3/GNU-Linux/wiki/Arch)
 
-- [MyConfig GNU-Linux]()
+- [MyConfig GNU-Linux](https://github.com/G4NST3/GNU-Linux/wiki/MyConfig-GNU-Linux)
 
 
