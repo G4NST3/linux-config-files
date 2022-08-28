@@ -2,7 +2,10 @@
 
 # [My Wiki](https://github.com/G4NST3/GNU-Linux/wiki)
 
-[![Arch](https://archlinux.org/static/logos/archlinux-logo-light-90dpi.d36c53534a2b.png)](https://github.com/G4NST3/GNU-Linux/wiki/Arch)
+<a href="https://github.com/G4NST3/GNU-Linux/wiki/Arch">
+  <img src="https://archlinux.org/static/logos/archlinux-logo-light-90dpi.d36c53534a2b.png" alt="Arch" height=100">
+</a>
+
 
 - [Pop!_OS](https://github.com/G4NST3/GNU-Linux/wiki/Pop!_OS)
 
