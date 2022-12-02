@@ -6,20 +6,44 @@
 
 - [Arch-Linux](https://github.com/G4NST3/GNU-Linux/wiki/Arch-Linux)
 
+- [bspwm](https://github.com/G4NST3/GNU-Linux/wiki/bspwm)
+
 - [Debian (stable) Linux](https://github.com/G4NST3/GNU-Linux/wiki/Debian-(stable)-Linux)
 
-- [Teminal](https://github.com/G4NST3/Windows/wiki/Teminal)
+- [Development Software](https://github.com/G4NST3/GNU-Linux/wiki/Development-Software)
 
-- [Teminal](https://github.com/G4NST3/Windows/wiki/Teminal)
+- [Fedora Linux](https://github.com/G4NST3/GNU-Linux/wiki/Fedora-Linux)
 
-- [Teminal](https://github.com/G4NST3/Windows/wiki/Teminal)
+- [Fonts](https://github.com/G4NST3/GNU-Linux/wiki/Fonts)
 
-- [Teminal](https://github.com/G4NST3/Windows/wiki/Teminal)
+- [HiDPI](https://github.com/G4NST3/GNU-Linux/wiki/HiDPI)
 
-- [Teminal](https://github.com/G4NST3/Windows/wiki/Teminal)
+- [i3](https://github.com/G4NST3/GNU-Linux/wiki/i3)
 
-- [Teminal](https://github.com/G4NST3/Windows/wiki/Teminal)
+- [Java](https://github.com/G4NST3/GNU-Linux/wiki/Java)
 
-- [Teminal](https://github.com/G4NST3/Windows/wiki/Teminal)
+- [joomla](https://github.com/G4NST3/GNU-Linux/wiki/joomla)
 
-- [Teminal](https://github.com/G4NST3/Windows/wiki/Teminal)
+- [LAMP server (Debian Linux based distros](https://github.com/G4NST3/GNU-Linux/wiki/LAMP-server-(Debian-Linux-based-distros))
+
+- []()
+
+- []()
+
+- []()
+
+- []()
+
+- []()
+
+- []()
+
+- []()
+
+- []()
+
+- []()
+
+- []()
+
+- []()
