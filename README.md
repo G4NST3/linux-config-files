@@ -46,4 +46,10 @@
 
 - [Ubuntu Linux](https://github.com/G4NST3/GNU-Linux/wiki/Ubuntu-Linux)
 
-- []()
+- [vim](https://github.com/G4NST3/GNU-Linux/wiki/vim)
+
+- [VirtualBox](https://github.com/G4NST3/GNU-Linux/wiki/VirtualBox)
+
+- [VMware](https://github.com/G4NST3/GNU-Linux/wiki/VMware)
+
+- [zsh](https://github.com/G4NST3/GNU-Linux/wiki/zsh)
