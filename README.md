@@ -26,24 +26,24 @@
 
 - [LAMP server (Debian Linux based distros](https://github.com/G4NST3/GNU-Linux/wiki/LAMP-server-(Debian-Linux-based-distros))
 
-- []()
+- [Laptop Lid Power Configuration](https://github.com/G4NST3/GNU-Linux/wiki/Laptop-Lid-Power-Configuration)
 
-- []()
+- [MISC](https://github.com/G4NST3/GNU-Linux/wiki/MISC)
 
-- []()
+- [Neovim](https://github.com/G4NST3/GNU-Linux/wiki/Neovim)
 
-- []()
+- [openSUSE Tumbleweed Linux](https://github.com/G4NST3/GNU-Linux/wiki/openSUSE-Tumbleweed-Linux)
 
-- []()
+- [picom](https://github.com/G4NST3/GNU-Linux/wiki/picom)
 
-- []()
+- [polybar](https://github.com/G4NST3/GNU-Linux/wiki/polybar)
 
-- []()
+- [powerline](https://github.com/G4NST3/GNU-Linux/wiki/powerline)
 
-- []()
+- [samba](https://github.com/G4NST3/GNU-Linux/wiki/samba)
 
-- []()
+- [tmux](https://github.com/G4NST3/GNU-Linux/wiki/tmux)
 
-- []()
+- [Ubuntu Linux](https://github.com/G4NST3/GNU-Linux/wiki/Ubuntu-Linux)
 
 - []()
