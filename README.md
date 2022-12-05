@@ -51,6 +51,6 @@
 - [VirtualBox](https://github.com/G4NST3/GNU-Linux/wiki/VirtualBox)
 
 - [VMware](https://github.com/G4NST3/GNU-Linux/wiki/VMware)
- - asd
+  - [Mount VMware host Shared Folders in guest Linux virtual machine](https://github.com/G4NST3/GNU-Linux/wiki/VMware#mount-vmware-host-shared-folders-in-guest-linux-virtual-machine)
 
 - [zsh](https://github.com/G4NST3/GNU-Linux/wiki/zsh)
