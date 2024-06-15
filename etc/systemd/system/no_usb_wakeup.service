@@ -1,0 +1,8 @@
+[Unit]
+Description=no_usb_wakeup
+
+[Service]
+ExecStart=/bin/bash -c "echo XH00 >> /proc/acpi/wakeup"
+
+[Install]
+WantedBy=multi-user.target
