@@ -1,3 +1,4 @@
+# https://wiki.archlinux.org/title/Power_management/Wakeup_triggers#Instantaneous_wakeups_from_suspend
 [Unit]
 Description=no_usb_wakeup
 
