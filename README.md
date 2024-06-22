@@ -5,15 +5,19 @@
 
 ### Pages:
 
-- [Arch-Linux](https://github.com/G4NST3/GNU-Linux/wiki/Arch-Linux)
+- [Arch Linux](https://github.com/G4NST3/GNU-Linux/wiki/Arch-Linux)
+
+- [Debian Linux](https://github.com/G4NST3/GNU-Linux/wiki/Debian-(stable)-Linux)
+
+- [Ubuntu Linux](https://github.com/G4NST3/GNU-Linux/wiki/Ubuntu-Linux)
+
+- [Fedora Linux](https://github.com/G4NST3/GNU-Linux/wiki/Fedora-Linux)
+
+- [openSUSE Tumbleweed Linux](https://github.com/G4NST3/GNU-Linux/wiki/openSUSE-Tumbleweed-Linux)
 
 - [bspwm](https://github.com/G4NST3/GNU-Linux/wiki/bspwm)
 
-- [Debian (stable) Linux](https://github.com/G4NST3/GNU-Linux/wiki/Debian-(stable)-Linux)
-
 - [Development Software](https://github.com/G4NST3/GNU-Linux/wiki/Development-Software)
-
-- [Fedora Linux](https://github.com/G4NST3/GNU-Linux/wiki/Fedora-Linux)
 
 - [Fonts](https://github.com/G4NST3/GNU-Linux/wiki/Fonts)
 
@@ -33,8 +37,6 @@
 
 - [Neovim](https://github.com/G4NST3/GNU-Linux/wiki/Neovim)
 
-- [openSUSE Tumbleweed Linux](https://github.com/G4NST3/GNU-Linux/wiki/openSUSE-Tumbleweed-Linux)
-
 - [picom](https://github.com/G4NST3/GNU-Linux/wiki/picom)
 
 - [polybar](https://github.com/G4NST3/GNU-Linux/wiki/polybar)
@@ -44,8 +46,6 @@
 - [samba](https://github.com/G4NST3/GNU-Linux/wiki/samba)
 
 - [tmux](https://github.com/G4NST3/GNU-Linux/wiki/tmux)
-
-- [Ubuntu Linux](https://github.com/G4NST3/GNU-Linux/wiki/Ubuntu-Linux)
 
 - [vim](https://github.com/G4NST3/GNU-Linux/wiki/vim)
 
