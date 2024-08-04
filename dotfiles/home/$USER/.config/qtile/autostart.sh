@@ -1,10 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
 # xorg-xrandr
 xrandr --output DisplayPort-1 --mode 2560x1440 --rate 59.95 &
-
-# dropbox
-dropbox &
 
 # picom
 picom -b &
@@ -22,3 +19,15 @@ nitrogen --restore &
 
 # easyeffects
 easyeffects --gapplication-service &
+
+# dropbox
+dropbox &
+
+# network-manager-applet
+nm-applet &
+
+# volumeicon
+volumeicon &
+
+# blueman
+blueman-applet &

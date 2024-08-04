@@ -7,35 +7,54 @@
 # python -m py_compile ~/.config/qtile/config.py
 
 from libqtile import bar, layout, qtile, widget, extension, hook
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, EzKey
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
-#from libqtile import extension, hook
 from libqtile.widget import backlight
 import os, subprocess
-#import subprocess
-#from libqtile import hook
 
 mod = "mod4"
-terminal = guess_terminal()
+terminal = "kitty"
 
 keys = [
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
+    Key([mod], "left", lazy.layout.left(), desc="Move focus to left"),
+    Key([mod], "right", lazy.layout.right(), desc="Move focus to right"),
+    Key([mod], "down", lazy.layout.down(), desc="Move focus down"),
+    Key([mod], "up", lazy.layout.up(), desc="Move focus up"),
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
 
     Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
     Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([mod, "shift"], "left", lazy.layout.shuffle_left(), desc="Move window to the left"),
+    Key([mod, "shift"], "right", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key([mod, "shift"], "down", lazy.layout.shuffle_down(), desc="Move window down"),
+    Key([mod, "shift"], "up", lazy.layout.shuffle_up(), desc="Move window up"),
 
     Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
     Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
     Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+    Key([mod, "control"], "left", lazy.layout.grow_left(), desc="Grow window to the left"),
+    Key([mod, "control"], "right", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key([mod, "control"], "down", lazy.layout.grow_down(), desc="Grow window down"),
+    Key([mod, "control"], "up", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+
+        #Key([mod, "shift"], "left", lazy.layout.move_left(), desc="Move window to the left"),
+        #Key([mod, "shift"], "right", lazy.layout.move_right(), desc="Move window to the right"),
+        #Key([mod, "shift"], "down", lazy.layout.move_down(), desc="Move window down"),
+        #Key([mod, "shift"], "up", lazy.layout.move_up(), desc="Move window up"),
+
+        #Key([mod, "control"], "left", lazy.layout.integrate_left(), desc="Grow window to the left"),
+        #Key([mod, "control"], "right", lazy.layout.integrate_right(), desc="Grow window to the right"),
+        #Key([mod, "control"], "down", lazy.layout.integrate_down(), desc="Grow window down"),
+        #Key([mod, "control"], "up", lazy.layout.integrate_up(), desc="Grow window up"),
 
     Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
 
@@ -65,7 +84,7 @@ keys = [
     Key([mod, "control"], "home", lazy.spawn("systemctl poweroff")),
 
     # rofi
-    Key([mod], "up", lazy.spawn("rofi -modi drun -show drun -show-icons -dpi 192")),
+    Key([mod], "slash", lazy.spawn("rofi -modi drun -show drun -show-icons -dpi 192")),
 
     # brightness
     Key([mod, "control"], "1", lazy.spawn("brightness 10")),
@@ -113,16 +132,16 @@ for vt in range(1, 8):
     )
 
 groups = [
-    Group(name="1", label="1|"),
-    Group(name="2", label="2|"),
-    Group(name="3", label="3|"),
-    Group(name="4", label="4|"),
-    Group(name="5", label="5|WEB", spawn="google-chrome-stable", matches=[Match(wm_class="google-chrome-stable")]),
-    Group(name="6", label="6|DEV", spawn="code", matches=[Match(wm_class="code")]),
-    Group(name="7", label="7|FILE", spawn="nemo", matches=[Match(wm_class="nemo")]),
-    Group(name="8", label="8|TERM", spawn="alacritty", matches=[Match(wm_class="alacritty")]),
-    Group(name="9", label="9|VM", spawn="vmware", matches=[Match(wm_class="vmware")]),
-    Group(name="0", label="0|PLAY", spawn="youtube-music", matches=[Match(wm_class="youtube-music")]),
+    Group(name="1", label=" 󰍹 "),
+    Group(name="2", label=" 󰍹 "),
+    Group(name="3", label=" 󰍹 "),
+    Group(name="4", label=" 󰍹 "),
+    Group(name="5", label="  ", spawn="google-chrome-stable", matches=[Match(wm_class="google-chrome-stable")]),
+    Group(name="6", label=" 󰨞 ", spawn="code", matches=[Match(wm_class="code")]),
+    Group(name="7", label="  ", spawn="nemo", matches=[Match(wm_class="nemo")]),
+    Group(name="8", label="  ", spawn="kitty", matches=[Match(wm_class="alacritty")]),
+    Group(name="9", label="  ", spawn="vmware", matches=[Match(wm_class="vmware")]),
+    Group(name="0", label=" 󰝚 ", spawn="youtube-music", matches=[Match(wm_class="youtube-music")]),
 ]
 
 for i in groups:
@@ -154,34 +173,29 @@ for i in groups:
     )
 
 layouts = [
-    # layout.Bsp(),
-    layout.Columns(
-        border_focus_stack=["#d75f5f", "#8f3d3d"],
-        border_width=5,
-        margin=[10, 10, 10, 10]
-        ),
-    # layout.Floating(),
-    # layout.Matrix(),
-    # layout.Max(),
-    # layout.MonadTall(),
-    # layout.MonadThreeCol(),
-    # layout.MonadWide(),
-    # layout.Plasma(),
-    # layout.RatioTile(),
-    # layout.ScreenSplit(),
-    # layout.Slice(),
-    # layout.Spiral(),
-    # layout.Stack(num_stacks=2),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+    #layout.Bsp(),
+    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=5, margin=[10, 10, 10, 10]),
+    #layout.Floating(),
+    #layout.Matrix(),
+    #layout.Max(),
+    #layout.MonadTall(),
+    #layout.MonadThreeCol(),
+    #layout.MonadWide(),
+    layout.Plasma(),
+    #layout.RatioTile(),
+    #layout.ScreenSplit(),
+    #layout.Slice(),
+    #layout.Spiral(),
+    #layout.Stack(num_stacks=2),
+    #layout.Tile(),
+    #layout.TreeTab(),
+    #layout.VerticalTile(),
+    #layout.Zoomy(),
 ]
 
 widget_defaults = dict(
     font="FiraCode Nerd Font",
     fontsize=20,
-    padding=2,
 )
 
 extension_defaults = widget_defaults.copy()
@@ -201,52 +215,54 @@ screens = [
                     other_screen_border='005500',
                     other_current_screen_border='005500',
                     ),
-                widget.Sep(),
+                widget.Sep(padding=20),
                 widget.LaunchBar(
                     icon_size=22,
+                    padding=10,
                     progs=[
-                    ('/usr/share/icons/hicolor/48x48/apps/firefox.png', 'firefox', 'Web browser'),
+                    ('/home/nunonogueir444/.config/qtile/icons/easyeffects.png', 'easyeffects', 'easyeffects'),
+                    ('lutris', 'lutris', 'lutris'),
+                    ('heroic', 'heroic', 'heroic'),
+                    ('steam', 'steam-runtime', 'steam'),
+                    ('github-desktop', 'github-desktop', 'github-desktop'),
+                    ('firefox', 'firefox', 'firefox'),
                     ]
                     ),
-                widget.Sep(),
+                widget.Sep(padding=20),
                 widget.Prompt(),
                 widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.Sep(),
+                widget.Sep(padding=20),
                 widget.Mpris2(
                     foreground='ff0000',
                     display_metadata=["xesam:title", "xesam:artist"],
                     scroll=True,
                     scroll_fixed_width=True,
-                    scroll_step=1,
+                    scroll_step=3,
                     width=400,
+                    poll_interval=1,
                 ),
-                widget.Sep(),
-                widget.Net(),
-                widget.Sep(),
+                widget.Sep(padding=20),
+                widget.Net(
+                    format='{down:6.2f}{down_suffix:<2} ↓↑ {up:6.2f}{up_suffix:<2}'),
+                widget.Sep(padding=20),
                 widget.CPU(),
-                widget.Sep(),
-                widget.Systray(
-                    icon_size=22,
+                #widget.Sep(padding=20),
+                #widget.Clipboard(),
+                widget.Sep(padding=20),
+                widget.OpenWeather(
+                    location='Clones',
+                    format='{location_city} {icon} {main_temp}°{units_temperature}'
                     ),
-                widget.Sep(),
-                widget.Volume(
-                    emoji=True,
-                    emoji_list=['🔇', '🔈', '🔉', '🔊'],
-                    ),
-                widget.Volume(),
-                widget.Sep(),
-                widget.Clock(format=" %a %d-%m-%Y %H:%M:%S "),
-                widget.QuickExit(),
+                #widget.Sep(padding=20),
+                #widget.StatusNotifier(icon_size=22),
+                widget.Sep(padding=20),
+                widget.Systray(icon_size=22, padding=10),
+                widget.Sep(padding=20),
+                widget.Clock(format="%a %d-%m-%Y %H:%M:%S"),
             ],
             36,
-            background="#000000",
-            border_width=1,
+            background="#222222",
+            border_width=0,
             border_color="#ff0000",
             opacity=1,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
@@ -301,7 +317,6 @@ wl_xcursor_theme = None
 wl_xcursor_size = 42
 
 wmname = "gore"
-
 
 @hook.subscribe.startup_once
 def autostart():
